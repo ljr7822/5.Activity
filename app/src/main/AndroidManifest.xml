@@ -10,7 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SecondActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity">
+
+            <!--添加意图过滤器-->
+            <intent-filter>
+                <!--系统提供的-->
+                <action android:name="android.intent.action.SEND"/>
+                <!--自己定义的-->
+                <action android:name="ljr.action.balabalabala"/>
+
+                <!--如果需要外部应用能打开，必须设置-->
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <!--如果需要外部启动这个界面的时候传递数据过来，必须定义数据格式-->
+                <data android:scheme="ljr"/>
+            </intent-filter>
+
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
